@@ -1,0 +1,192 @@
+html
+{
+    height: 1000px;
+    background: url("./img-css/wallhaven-l8vp7y.jpg") top center / cover no-repeat; 
+}
+
+
+body
+{
+    display: flex;
+    font-family: "Helvetica Neue";
+    height: 100%;
+}
+
+body > div
+{
+margin: auto;
+
+}
+
+.toast
+{
+   
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    border-left: 4px solid;
+    padding: 20px 0;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    min-width: 500px;
+    max-width: 600px;
+    transition: all linear 0.3s;
+   
+
+}
+
+@keyframes slideInLeft
+{
+    from
+    {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+    to
+    {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeout
+{
+    to
+    {
+        opacity: 0;
+    }
+}
+
+.toast + .toast
+{
+    margin-top: 24px;
+}
+
+.toast__icon
+{
+    font-size: 20px;
+    cursor: pointer;
+}
+.toast__body
+{
+    flex-grow: 1;
+}
+.toast__title
+{
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+.toast__msg
+{
+    font-size: 14px;
+    margin-top: 4px;
+    color: #888;
+
+}
+.toast__icon,.toast__close
+{
+    padding:  0 16px;
+}
+
+.toast__close
+{
+    cursor: pointer;
+    color: rgba(255, 33, 33, 0.8);
+    font-size: 24px;
+}
+
+.toast__close:hover
+{
+    opacity: 0.3;
+}
+
+
+.toast__success
+{
+    border-color: #47d864;
+}
+.toast__success .toast__icon
+{
+    color: #47d864;
+}
+.toast__info
+{
+    border-color: #2f86eb;
+}
+.toast__info .toast__icon
+{
+    color: #2f86eb;
+}
+.toast__warning
+{
+    border-color: #ffc021;
+}
+.toast__warning .toast__icon
+{
+    color: #ffc021;
+}
+.toast__error
+{
+    border-color: red;
+}
+.toast__error .toast__icon
+{
+    color: red;
+}
+
+#toast
+{
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 99999;
+
+}
+
+#btn-btn
+{
+    margin: 32px 0;
+}
+
+.btn
+{
+    display: inline-flex;
+    margin: 0 24px;
+    padding: 20px 0;
+    min-width: 250px;
+    max-width: 300px;
+    justify-content: center;
+    border-radius: 50px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    
+}
+
+.btn:hover
+{
+    opacity: 0.7;
+}
+
+.btn--success
+{
+    background-color: rgba(42, 217, 42,0.9);
+    color: white;
+}
+.btn--error
+{
+    background-color: rgba(255, 99, 42, 0.9);
+    color: white;
+}
+
+.btn--Info
+{
+    background-color: rgba(0, 123, 255, 0.9);
+    color: white;
+}
+.btn--Warning
+{
+    background-color: rgba(225, 202, 32, 0.9);
+    color: white;
+}

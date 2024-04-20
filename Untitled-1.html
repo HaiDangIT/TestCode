@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/Untitled-1.css">
+        <title>TestCode</title>
+        <link rel="stylesheet" href="./font/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.css">
+        <link rel="icon" href="./img/wallhaven-3l8k96.jpg" type="image/x-icon" />
+
+
+    </head>
+    <body>
+   <div id="toast">
+            <!-- <div class="toast toast__success">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Success</h3>
+                    <p class="toast__msg">You are my everything 1</p>
+
+                </div>
+                <div class="toast__close">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+            </div>
+    
+
+        <div class="toast toast__info">
+            <div class="toast__icon">
+                <i class="fa-solid fa-info"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">Info</h3>
+                <p class="toast__msg">You are my everything 2</p>
+
+            </div>
+            <div class="toast__close">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </div>
+        </div>
+   
+
+    <div class="toast toast__warning">
+        <div class="toast__icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="toast__body">
+            <h3 class="toast__title">Warning</h3>
+            <p class="toast__msg">You are my everything 3</p>
+
+        </div>
+        <div class="toast__close">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+    </div>
+
+
+            <div class="toast toast__error">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-bug"></i>
+             </div>
+                <div class="toast__body">
+        <h3 class="toast__title">Error</h3>
+        <p class="toast__msg">You are my everything 4</p>
+
+                </div>
+                <div class="toast__close">
+                    <i class="fa-regular fa-circle-xmark"></i>
+             </div>
+            </div> -->
+    
+        </div>
+
+        <div id="btn-div">
+           <div id="btn-btn">
+            <div onclick="showSuccessToast();" class="btn btn--success">Show Success toast</div>
+            <div onclick="showErrorToast();" class="btn btn--error">Show Error toast</div>
+        </div> 
+        <div id="btn-btn">
+            <div onclick="showInfoToast();" class="btn btn--Info">Show Info toast</div>
+            <div onclick="showWarningToast();" class="btn btn--Warning">Show Warning toast</div>
+        </div>
+        </div>
+            
+        </div>
+        <script>
+            function toast(
+            {
+                title = 'Success',
+                message = 'You are my every thing',
+                type = 'info',
+                duration = 5000
+            })
+
+            {
+                    const main = document.getElementById('toast');
+                    if(main)
+                    {
+                        const toast = document.createElement('div');
+                        // Auto remove
+                        const autoRemovedId = setTimeout(function()
+                        {
+                            main.removeChild(toast);
+                        }, duration + 1000);
+
+                        // Click to close
+                        toast.onclick = function(e)
+                        {
+                            if(e.target.closest('.toast__close'))
+                            {
+                                main.removeChild(toast);
+                                clearTimeout(autoRemovedId);
+                            }
+                        }
+
+                        const icons = {
+                            success: 'fa-solid fa-circle-check',
+                            info: 'fa-solid fa-info',
+                            warning: 'fa-regular fa-circle-xmark',
+                            error: 'fa-solid fa-bug',
+                        };
+                        const icon = icons[type];
+                        const delay = (duration / 1000). toFixed(2);
+
+                        toast.classList.add('toast' , `toast__${type}`);
+                        toast.style.animation = `slideInLeft ease 1s, fadeout linear 1s ${delay}s forwards`;
+                        toast.innerHTML = ` 
+                            <div class="toast__icon">
+                                <i class="${icon}"></i>
+                            </div>
+                            <div class="toast__body">
+                                <h3 class="toast__title">${title}</h3>
+                                <p class="toast__msg">${message}</p>
+            
+                            </div>
+                            <div class="toast__close">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                            </div>
+                        </div> `;
+                        main.appendChild(toast);
+                        
+                    }
+            }
+
+            function showSuccessToast()
+            {
+                toast(
+                {
+                    title: 'Success',
+                    message: 'Làm người yêu tớ nha',
+                    type: 'success',
+                    duration: 5000
+                }
+            );
+            }
+            function showErrorToast()
+            {
+                toast(
+                {
+                    title: 'Error',
+                    message: 'Cậu chưa là người yêu của tớ à',
+                    type: 'error',
+                    duration: 5000
+                }
+            );
+            }
+            function showInfoToast()
+            {
+                toast(
+                {
+                    title: 'Info',
+                    message: 'Dáng  vẻ của người đẹp nhất thế gian',
+                    type: 'info',
+                    duration: 5000
+                }
+            );
+            }
+            function showWarningToast()
+            {
+                toast(
+                {
+                    title: 'Warning',
+                    message: 'Cậu không đồng ý à....hic',
+                    type: 'warning',
+                    duration: 5000
+                }
+            );
+            }
+
+        </script>
+
+    </body>
+
+</html>
